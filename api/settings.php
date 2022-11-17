@@ -15,20 +15,14 @@ $db->connect();
 $sql = "SELECT * FROM `settings`";
 $db->sql($sql);
 $res = $db->getResult();
+$sql = "SELECT * FROM dashboard_info";
+$db->sql($sql);
+$dasres = $db->getResult();
 $num = $db->numRows($res);
-if ($num >= 1) {
-    
-    $response['success'] = true;
-    $response['message'] = "Settings listed Successfully";
-    $response['data'] = $res;
-    print_r(json_encode($response));
-    
-
-}else{
-    $response['success'] = false;
-    $response['message'] = "Not Found";
-    print_r(json_encode($response));
-
-}
+$response['success'] = true;
+$response['message'] = "Settings listed Successfully";
+$response['data'] = $res;
+$response['dashboard_list'] = $dasres;
+print_r(json_encode($response));
 
 ?>
