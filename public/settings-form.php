@@ -12,6 +12,8 @@ if (isset($_POST['btnUpdate'])) {
     $web = $db->escapeString(($_POST['web']));
     $app = $db->escapeString(($_POST['app']));
     $contact = $db->escapeString(($_POST['contact']));
+    $telegram = $db->escapeString(($_POST['telegram']));
+    $support = $db->escapeString(($_POST['support']));
     $error = array();
     
     if (empty($whatsapp)) {
@@ -26,11 +28,17 @@ if (isset($_POST['btnUpdate'])) {
     if (empty($contact)) {
         $error['contact'] = " <span class='label label-danger'>Required!</span>";
     }
+    if (empty($telegram)) {
+        $error['telegram'] = " <span class='label label-danger'>Required!</span>";
+    }
+    if (empty($support)) {
+        $error['support'] = " <span class='label label-danger'>Required!</span>";
+    }
        
     
-    if (!empty($web) && !empty($app) && !empty($contact)  && !empty($whatsapp)) {
+    if (!empty($web) && !empty($app) && !empty($contact)  && !empty($whatsapp) && !empty($telegram)  && !empty($support)) {
            
-            $sql_query = "UPDATE settings SET web='$web',app='$app',contact='$contact',whatsapp='$whatsapp' WHERE id=1";
+            $sql_query = "UPDATE settings SET web='$web',app='$app',contact='$contact',whatsapp='$whatsapp',telegram='$telegram',support='$support' WHERE id=1";
             $db->sql($sql_query);
             $result = $db->getResult();
             if (!empty($result)) {
@@ -78,23 +86,33 @@ $res = $db->getResult();
                 <form name="delivery_charge" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><i class="fa fa-whatsapp" style="color:green;">Whatsapp</i></label> <i class="text-danger asterik">*</i><?php echo isset($error['whatsapp']) ? $error['whatsapp'] : ''; ?>
+                                <label for="exampleInputEmail1">Whatsapp</label> <i class="text-danger asterik">*</i><?php echo isset($error['whatsapp']) ? $error['whatsapp'] : ''; ?>
                                 <input type="text" class="form-control" name="whatsapp" value="<?= $res[0]['whatsapp']; ?>" required>
                             </div>
                         
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><i class="fa fa-globe">Website</i></label> <i class="text-danger asterik">*</i><?php echo isset($error['web']) ? $error['web'] : ''; ?>
+                                <label for="exampleInputEmail1">Website</label> <i class="text-danger asterik">*</i><?php echo isset($error['web']) ? $error['web'] : ''; ?>
                                 <input type="text" class="form-control" name="web" value="<?= $res[0]['web']; ?>" required>
                             </div>
                         
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><i class="fa fa-mobile">Mobile Application (APK)</i></label> <i class="text-danger asterik">*</i><?php echo isset($error['app']) ? $error['app'] : ''; ?>
+                                <label for="exampleInputEmail1">Mobile Application (APK)</label> <i class="text-danger asterik">*</i><?php echo isset($error['app']) ? $error['app'] : ''; ?>
                                 <input type="text" class="form-control" name="app" value="<?= $res[0]['app']; ?>" required>
                             </div>
                         
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><i class="fa fa-phone">Contact Us</i></label> <i class="text-danger asterik">*</i><?php echo isset($error['contact']) ? $error['contact'] : ''; ?>
+                                <label for="exampleInputEmail1">Contact Us</label> <i class="text-danger asterik">*</i><?php echo isset($error['contact']) ? $error['contact'] : ''; ?>
                                 <input type="text" class="form-control"  name="contact" value="<?= $res[0]['contact']; ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Telegram</label> <i class="text-danger asterik">*</i><?php echo isset($error['telegram']) ? $error['telegram'] : ''; ?>
+                                <input type="text" class="form-control"  name="telegram" value="<?= $res[0]['telegram']; ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Support</label> <i class="text-danger asterik">*</i><?php echo isset($error['support']) ? $error['support'] : ''; ?>
+                                <input type="text" class="form-control"  name="support" value="<?= $res[0]['support']; ?>" required>
                             </div>
                     </div>
                     <!-- /.box-body -->
