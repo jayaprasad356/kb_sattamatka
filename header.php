@@ -114,7 +114,7 @@ $fn = new custom_functions;
                 </span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
-                    <h3>Dpboss Satta Matka</h3>
+                    <h3>Kb SattaMatka</h3>
                 </span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -165,12 +165,12 @@ $fn = new custom_functions;
                         <i class="fa fa-home" class="active"></i> <span>Home</span>
                     </a>
                 </li>
-                <li class="treeview">
+                <!-- <li class="treeview">
                     <a href="dashboard_info.php">
                         <i class="fa fa-sliders"></i>
                         <span>Dashboard Info</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="treeview">
                     <a href="settings.php">
                         <i class="fa fa-gear"></i>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2022 at 12:06 PM
+-- Generation Time: Dec 19, 2022 at 08:15 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -18,27 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `satta_matka`
+-- Database: `kb_sattamatka`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dashboard_info`
---
-
-CREATE TABLE `dashboard_info` (
-  `id` int(11) NOT NULL,
-  `title` text DEFAULT NULL,
-  `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `dashboard_info`
---
-
-INSERT INTO `dashboard_info` (`id`, `title`, `description`) VALUES
-(1, 'Hello Dpboss ', 'A sample refers to a smaller, manageable version of a larger group. It is a subset containing the characteristics of a larger population. ');
 
 -- --------------------------------------------------------
 
@@ -49,27 +30,19 @@ INSERT INTO `dashboard_info` (`id`, `title`, `description`) VALUES
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
   `whatsapp` varchar(400) DEFAULT NULL,
-  `web` varchar(400) DEFAULT NULL,
-  `app` varchar(400) DEFAULT NULL,
-  `contact` varchar(400) DEFAULT NULL
+  `app` varchar(400) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `whatsapp`, `web`, `app`, `contact`) VALUES
-(1, 'http:///gdse34.whatsapp.com', 'https://sample.website.in', 'http://sattamatka.apk', 'dpboss56@gmail.com');
+INSERT INTO `settings` (`id`, `whatsapp`, `app`) VALUES
+(1, 'http:///gdse34.whatsapp.com', 'http://sattamatka.apk');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `dashboard_info`
---
-ALTER TABLE `dashboard_info`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `settings`
@@ -80,12 +53,6 @@ ALTER TABLE `settings`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `dashboard_info`
---
-ALTER TABLE `dashboard_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `settings`
